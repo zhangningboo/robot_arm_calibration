@@ -108,8 +108,6 @@ install(TARGETS fr5_joint_states_pub
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-
-
 add_executable(fr5_query_state_and_pub src/fr5_query_state_and_pub.cpp)
 target_link_libraries(fr5_query_state_and_pub  ${catkin_LIBRARIES}
   robotAPI

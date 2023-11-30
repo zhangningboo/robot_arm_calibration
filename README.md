@@ -79,7 +79,9 @@ $ sudo apt install -y ros-melodic-moveit \
                       ros-melodic-panda-moveit-config \
                       ros-melodic-ecl* \
                       ros-melodic-serial* \
-                      ros-melodic-joint-state*
+                      ros-melodic-joint-state* \
+                      ros-melodic-handeye \
+                      
 $ mkdir -p ~/workspace/moveit_ws/src && cd ~/workspace/moveit_ws/src
 $ git clone https://github.com/ros-planning/moveit_tutorials.git -b melodic-devel
 $ sudo rosdep fix-permissions && rosdep install -y --from-paths . --ignore-src --rosdistro melodic
@@ -170,13 +172,8 @@ $ rostopic echo /frcobot_status
 
 - 本教程版本：
 ```shell
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_hw/include/* /usr/local/include/
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_hw/lib/* /usr/local/lib/
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_gripper/include/* /usr/local/include/
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_gripper/lib/* /usr/local/lib/
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_camera/include/* /usr/local/include/
-$ sudo cp -R ~/workspace/calibration_ws/src/frcobot_ros/frcobot_camera/lib/* /usr/local/lib/
-
+$ sudo cp -R ~/workspace/calibration_ws/src/fr5_real_moveit/include/* /usr/local/include/
+$ sudo cp -R ~/workspace/calibration_ws/src/fr5_real_moveit/lib/* /usr/local/lib/
 $ roslaunch fr5_real_moveit fr5robot_rviz.launch
 ```
 
@@ -185,6 +182,12 @@ $ roslaunch fr5_real_moveit fr5robot_rviz.launch
 - 启动机械臂
 - 启动相机
 - 启动标定
+
+```shell
+$ roslaunch fr5_real_moveit demo.launch
+$ roslaunch easy_handeye eye_in_hand_calibration.launch
+$ roslaunch easy_handeye start_calibrate.launch
+```
 
 # DEBUG有用的命令
 - tf树查询： `rosrun tf view_frames`
