@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ubuntu/workspace/calibration_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/ubuntu/workspace/calibration_ws/src/fr5_real_moveit/include/**",
+        "/home/ubuntu/workspace/calibration_ws/src/OrbbecSDK_ROS1/include/**",
+        "/usr/include/**",
+        "/usr/local/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

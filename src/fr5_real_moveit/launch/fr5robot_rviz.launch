@@ -1,0 +1,16 @@
+<launch>
+    <!-- 加载模型 -->
+    <param name="robot_description" textfile="$(find fr5_real_moveit)/urdf/fr5_robot.urdf" />
+    
+    <!-- 发布tf -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="20" />
+    </node>
+
+    <!-- 发布机器人关节节点 -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    <node name="fr5_joint_states_pub" pkg="fr5_real_moveit" type="fr5_joint_states_pub" output="screen" />
+    
+    <!-- Rviz 可视化   -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fr5_real_moveit)/launch/fr5robot.rviz" />
+</launch>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- robot_ip: IP-address of the robot's socket-messaging server -->
+  <arg name="robot_ip"/>
+  <arg name="limited" default="false"/>
+  <arg name="min_payload"  default="0.0"/>
+  <arg name="max_payload"  default="5.0"/>
+  <arg name="prefix" default="" />
+  <arg name="use_gui" default="true" />
+
+
+  <!-- Gazebo specific options -->
+  <arg name="gazebo_gui" default="false"/>
+  <arg name="paused" default="false"/>
+  <!-- By default, use the urdf location provided from the package -->
+  <arg name="urdf_path" default="$(find fr5_real_moveit)/urdf/fr5_robot.urdf"/>
+
+  <!-- launch the gazebo simulator and spawn the robot -->
+  <include file="$(find fr5_real_moveit)/launch/gazebo.launch" >
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+    <arg name="urdf_path" value="$(arg urdf_path)"/>
+  </include>
+
+  <include file="$(find fr5_real_moveit)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="true"/>
+    <arg name="pipeline" value="ompl"/>
+  </include>
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <param name="use_gui" value="$(arg use_gui)"/>
+    <!-- <rosparam param="source_list">[/frrobot/joint_states]</rosparam> -->
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+  </node>
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /> -->
+
+  <!-- robot model -->
+  <include file="$(find fr5_real_moveit)/launch/inc/load_fr5.launch.xml">
+    <!-- <arg name="limited" value="$(arg limited)"/> -->
+  </include>
+  
+  <!-- ur common -->
+  <include file="$(find fr5_real_moveit)/launch/inc/fr_common.launch">
+    <arg name="prefix"  value="$(arg prefix)" />
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+    <arg name="min_payload"  value="$(arg min_payload)"/>
+    <arg name="max_payload"  value="$(arg max_payload)"/>
+  </include>
+
+</launch>

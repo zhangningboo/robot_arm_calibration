@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>fr5_real_moveit</name>
+  <version>0.3.0</version>
+  <description>
+     An automatically generated package with all the configuration and launch files for using the fr5_robot with the MoveIt! Motion Planning Framework
+  </description>
+  <author email="zhaojinqi@frtech.fr">zhaojinqi</author>
+  <maintainer email="zhaojinqi@frtech.fr">zhaojinqi</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://moveit.ros.org/</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>warehouse_ros_mongo</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  
+  <build_depend>ecl_build</build_depend>
+  <build_depend>ecl_devices</build_depend>
+  <build_depend>ecl_geometry</build_depend>
+  <build_depend>ecl_time</build_depend>
+    
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_fake_controller_manager</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_setup_assistant</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <exec_depend>ecl_build</exec_depend>
+  <exec_depend>ecl_devices</exec_depend>
+  <exec_depend>ecl_geometry</exec_depend>
+  <exec_depend>ecl_time</exec_depend>
+
+  
+  <!-- This package is referenced in the warehouse launch files, but does not build out of the box at the moment. Commented the dependency until this works. -->
+  <exec_depend>warehouse_ros_mongo</exec_depend>
+
+
+</package>
