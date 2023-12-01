@@ -191,6 +191,13 @@ $ roslaunch easy_handeye eye_in_hand_calibration.launch
 $ roslaunch easy_handeye start_calibrate.launch
 ```
 
+Computed calibration: [[-0.04291248  0.62296193 -0.78107423 -0.0528288 ]
+ [ 0.02377933  0.78220978  0.62256117  0.06588526]
+ [ 0.99879581  0.00814223 -0.04838018  0.04474217]
+ [ 0.          0.          0.          1.        ]]
+ /home/ubuntu/.ros/easy_handeye/fr5_orbbec_hand_eye_calibration_eye_on_hand.yaml
+https://blog.csdn.net/laoli_/article/details/128144613
+
 # DEBUG有用的命令
 - tf树查询： `rosrun tf view_frames`
 - 查询TF消息结构： `rosmsg show tf2_msgs/TFMessage`
@@ -244,3 +251,5 @@ $ conda install catkin-tools rospkg
 ```
 - chmod +x your/python_script.py
 - rosruan package_name python_script
+
+- https://blog.51cto.com/u_16099323/8237733
