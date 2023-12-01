@@ -185,6 +185,8 @@ $ roslaunch fr5_real_moveit fr5robot_rviz.launch
 
 ```shell
 $ roslaunch fr5_real_moveit demo.launch
+$ roslaunch orbbec_camera gemini.launch
+$ roslaunch orbbec_camera gemini_info_node
 $ roslaunch easy_handeye eye_in_hand_calibration.launch
 $ roslaunch easy_handeye start_calibrate.launch
 ```
@@ -228,3 +230,17 @@ float64[] effort  # 关节受到的力，单位：N·m 或 N
 - catkin_make -DCATKIN_WHITELIST_PACKAGES="fr5_real_moveit"
 
 # 报错处理
+
+
+# ROS兼容Python3
+- 安装conda并激活环境
+- 安装ros的包：
+```shell
+$ conda install catkin-tools rospkg
+```
+- 在python3的脚本中，加入python3的指定：
+```python
+#env/usr/bin python3
+```
+- chmod +x your/python_script.py
+- rosruan package_name python_script
