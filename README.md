@@ -50,7 +50,7 @@ $ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 $ sudo apt install -y ros-melodic-desktop-full
 $ sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
-$ sudo pip install -y rosdepc
+$ sudo pip install rosdepc
 $ sudo rosdepc init
 $ rosdepc update
 $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc && source ~/.bashrc
@@ -93,13 +93,12 @@ $ roslaunch moveit_setup_assistant setup_assistant.launch
 #### 安装easy_handeye
 
 ```shell
-$ pip3 install opencv-python opencv-contrib-python
 $ sudo -H /usr/bin/python2 -m pip install -U transforms3d==0.3.1
 $ sudo apt install -y ros-melodic-freenect* ros-melodic-aruco*  ros-melodic-visp*
 $ mkdir -p ~/workspace/calibration_ws/src && cd ~/workspace/calibration_ws/src
 $ git clone https://github.com/IFL-CAMP/easy_handeye.git -b v0.4.3
 $ cd ~/workspace/calibration_ws && catkin_make
-$ pip install opencv-python==4.1.2.30
+$ pip install opencv-python==4.1.2.30 opencv-contrib-python==4.1.2.30
 $ roslaunch easy_handeye eye_in_hand_calibration.launch
 $ 
 ```
