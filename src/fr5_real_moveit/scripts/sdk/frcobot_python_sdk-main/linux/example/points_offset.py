@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 #Overall shift of robot point position
 J1=[-168.847,-93.977,-93.118,-80.262,88.985,11.831]

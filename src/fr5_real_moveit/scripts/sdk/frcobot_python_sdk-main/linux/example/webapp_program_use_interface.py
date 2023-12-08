@@ -13,7 +13,7 @@ def print_program_state(name,rb):
         time.sleep(1)
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 #The robot webapp program uses the interface
 robot.Mode(0)   #The robot entered automatic operation mode

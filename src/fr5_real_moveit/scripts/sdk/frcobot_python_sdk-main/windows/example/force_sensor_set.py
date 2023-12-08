@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 company = 17    #Sensor manufacturer,17-Kunwei Technology,
 device = 0      #Sensor equipment number

@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 #Load identification. At this time, the tool to be identified is installed at the end. The tool is installed under the force sensor, and the end is vertical down
 robot.FT_SetRCS(0)    #Set reference coordinate system to tool coordinate system, 0- tool coordinate system, 1- base coordinate system

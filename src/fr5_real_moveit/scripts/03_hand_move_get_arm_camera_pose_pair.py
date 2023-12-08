@@ -37,7 +37,7 @@ save_path.mkdir(exist_ok=True)
 
 def main():
     # Arm
-    robot = FRArmRobot('192.168.58.2')
+    robot = FRArmRobot('192.168.3.211')
     aruco_dict = aruco.Dictionary_get(aruco.DICT_5X5_250)  # 尺寸需要和打印的ArUco标记保持一致
     # 初始化ArUco参数
     parameters = aruco.DetectorParameters_create()

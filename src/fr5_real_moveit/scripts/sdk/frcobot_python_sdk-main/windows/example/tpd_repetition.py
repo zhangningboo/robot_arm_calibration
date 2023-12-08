@@ -2,7 +2,7 @@ import frrpc
 
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 P1=[-378.9,-340.3,107.2,179.4,-1.3,125.0]
 name = 'tpd2023'   #Track name

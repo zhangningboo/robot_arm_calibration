@@ -7,7 +7,6 @@ add_library(frrobot_hw_interface
   src/frrobot_hw_interface.cpp
   src/tool.cpp
 )
-
 target_link_libraries(frrobot_hw_interface
   generic_hw_interface
   ${catkin_LIBRARIES}

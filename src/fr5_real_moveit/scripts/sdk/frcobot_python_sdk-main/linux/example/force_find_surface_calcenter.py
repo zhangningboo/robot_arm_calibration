@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.58.2')
+robot = frrpc.RPC('192.168.3.211')
 
 #Constant force parameter
 status = 1  #Constant force control open flag, 0-off, 1-on
