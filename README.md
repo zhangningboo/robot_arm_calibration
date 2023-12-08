@@ -183,13 +183,22 @@ $ roslaunch fr5_real_moveit fr5robot_rviz.launch
 - 启动标定
 
 ```shell
-$ roslaunch fr5_real_moveit demo.launch
 $ roslaunch orbbec_camera gemini.launch
-$ roslaunch orbbec_camera gemini_info_node
+$ roslaunch fr5_real_moveit demo.launch
 $ roslaunch easy_handeye eye_in_hand_calibration.launch
 $ roslaunch easy_handeye start_calibrate.launch
 ```
 
+translation: 
+  x: -0.01301511916
+  y: 0.115340741301
+  z: 0.0882395030907
+rotation: 
+  x: -0.206876181051
+  y: -0.699971847352
+  z: -0.268517827779
+  w: 0.628601491243
+  
 Computed calibration: [[-0.04291248  0.62296193 -0.78107423 -0.0528288 ]
  [ 0.02377933  0.78220978  0.62256117  0.06588526]
  [ 0.99879581  0.00814223 -0.04838018  0.04474217]
