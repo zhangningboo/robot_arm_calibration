@@ -13,7 +13,7 @@ public:
     
 	/**
     *@brief  Establish communication with the robot controller
-    *@param  [in] ip  Controller IP address. The default value is 192.168.3.211
+    *@param  [in] ip  Controller IP address. The default value is 192.168.33.211
     *@return Error code
 	 */
     errno_t  RPC(const char *ip);

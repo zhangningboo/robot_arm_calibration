@@ -1,7 +1,7 @@
 import frrpc
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.3.211')
+robot = frrpc.RPC('192.168.33.211')
 
 J1 = [114.578,-117.798,-97.745,-54.436,90.053,-45.216]
 P1 = [-140.418,619.351,198.369,-179.948,0.023,69.793]

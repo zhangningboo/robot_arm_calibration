@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.3.211')
+robot = frrpc.RPC('192.168.33.211')
 
 mode = 2  #Tool coordinate system incremental exercise
 n_pos = [0.0,0.0,0.5,0.0,0.0,0.0]   #Descartes space increase

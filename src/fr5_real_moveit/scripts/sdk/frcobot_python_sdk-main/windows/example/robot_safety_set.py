@@ -1,7 +1,7 @@
 import frrpc
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.3.211')
+robot = frrpc.RPC('192.168.33.211')
 
 level = [1.0,2.0,3.0,4.0,5.0,6.0]
 robot.SetAnticollision(0,level,1)

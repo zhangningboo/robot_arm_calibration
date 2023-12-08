@@ -2,7 +2,7 @@ import frrpc
 import time
 
 # A connection is established with the robot controller. A successful connection returns a robot object
-robot = frrpc.RPC('192.168.3.211')
+robot = frrpc.RPC('192.168.33.211')
 
 # Robot single axis point
 robot.StartJOG(0,1,0,20.0,20.0,30.0)    # Single joint motion, StartJOG is a non blocking command, and other motion commands (including StartJOG) received during motion will be discarded

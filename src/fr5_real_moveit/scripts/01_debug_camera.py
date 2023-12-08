@@ -25,7 +25,7 @@ save_path.mkdir(exist_ok=True)
 
 def main():
     # Arm
-    robot = FRArmRobot('192.168.3.211')
+    robot = FRArmRobot('192.168.33.211')
     # 获取当前机械臂的关节角度
     _, *cur_joint_angle = robot.get_cur_joint_angle(BlockMode.No)
     # 获取当前机械臂末端的笛卡尔坐标
