@@ -188,6 +188,9 @@ $ roslaunch fr5_real_moveit demo.launch
 $ roslaunch easy_handeye eye_in_hand_calibration.launch
 $ roslaunch easy_handeye start_calibrate.launch
 ```
+route delete 0.0.0.0 mask 0.0.0.0
+route add 0.0.0.0 mask 0.0.0.0 192.168.3.1
+route add 192.168.33.0 mask 255.255.255.0 192.168.33.1
 
 translation: 
   x: -0.01301511916

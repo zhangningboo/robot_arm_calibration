@@ -5,29 +5,57 @@
   </include>
 
   <!-- 2. start the Realsense415 camera -->
-  <include file="$(find orbbec_camera)/launch/gemini.launch" />
+  <!-- <include file="$(find orbbec_camera)/launch/gemini.launch">
+    <arg name="depth_registration" value="true" /> 
+  </include> -->
+  <include file="$(find astra_camera)/launch/gemini.launch">
+    <arg name="color_depth_synchronization" value="true" />
+    <arg name="depth_registration" value="true" />
+  </include>
+
 
   <!-- 3. publish TF between base_link and camera_link -->
   <include file="$(find publish_hand_eye_tf)/launch/publish_hand_eye_tf.launch" />
 
-  <arg name="marker_size" default="0.128" />
+  <arg name="marker_size" default="0.090" />
+  <arg name="marker_id" default="1" />
   <arg name="max_new_marker_error" default="0.08" />
   <arg name="max_track_error" default="0.05" />
 
-  <arg name="cam_image_topic" default="/head_mount_kinect/depth_registered/points" />
+  <arg name="cam_image_topic" default="/camera/depth_registered/points" />
   <arg name="cam_info_topic" default="/camera/depth/camera_info" />
+  <!-- <arg name="output_frame" default="/ar_link" /> -->
   <arg name="output_frame" default="/base_link" />
 
   <!-- 4. start the ar_track_alvar node -->
-  <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkers" respawn="false" output="screen">
-    <param name="marker_size"           type="double" value="$(arg marker_size)" />
-    <param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
-    <param name="max_track_error"       type="double" value="$(arg max_track_error)" />
-    <param name="output_frame"          type="string" value="$(arg output_frame)" />
-    <remap from="camera_image"  to="$(arg cam_image_topic)" />
-    <remap from="camera_info"   to="$(arg cam_info_topic)" />
+  <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkers" respawn="false"
+    output="screen">
+    <param name="marker_size" type="double" value="$(arg marker_size)" />
+    <param name="max_new_marker_error" type="double" value="$(arg max_new_marker_error)" />
+    <param name="max_track_error" type="double" value="$(arg max_track_error)" />
+    <param name="output_frame" type="string" value="$(arg output_frame)" />
+    <remap from="camera_image" to="$(arg cam_image_topic)" />
+    <remap from="camera_info" to="$(arg cam_info_topic)" />
   </node>
 
+ <!-- start ArUco -->
+     <node name="aruco_tracker" pkg="aruco_ros" type="single">
+         <!-- remap代表映射关系 -->
+         <!-- /camera_info映射到自己摄像头发布内参的topic -->
+         <remap from="/camera_info" to="/camera/rgb/camera_info" />
+         <!-- /image映射到自己摄像头rgb节点的image_raw(raw类型的图像输出topic)-->
+         <remap from="/image" to="/camera/rgb/image_raw" />
+         <param name="image_is_rectified" value="true" />
+         <param name="marker_size" value="$(arg marker_size)" />
+         <param name="marker_id" value="$(arg marker_id)" />
+         <!-- reference_frame和camera_frame如何选择请其他教程1 -->
+         <param name="reference_frame" value="camera_link" />
+         <param name="camera_frame" value="camera_color_optical_frame" />
+         <!-- 这里不用更改，填camera_marker就可以 -->
+         <param name="marker_frame" value="marker" />
+     </node>
+
   <!-- 5. start the Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find verify_calibration)/rviz/ar_tag_pick.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz"
+    args="-d $(find verify_calibration)/rviz/ar_tag_pick.rviz" />
 </launch>
